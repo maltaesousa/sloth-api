@@ -13,8 +13,8 @@ class DatabaseSeeder extends Seeder
     {
       DB::table('users')->insert([
           'login' => 'jdoe',
-          'name' => 'John',
-          'surname' => 'Doe',
+          'firstname' => 'Jane',
+          'lastname' => 'Does',
           'role' => 'user',
           'email' => str_random(10).'@gmail.com',
           'password' => bcrypt('secret'),
@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
 
       DB::table('users')->insert([
           'login' => 'admin',
-          'name' => 'John',
-          'surname' => 'Doe',
+          'firstname' => 'John',
+          'lastname' => 'Doe',
           'role' => 'admin',
           'email' => str_random(10).'@gmail.com',
           'password' => bcrypt('secret'),
