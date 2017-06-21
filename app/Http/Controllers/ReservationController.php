@@ -9,6 +9,6 @@ class ReservationController extends Controller
 {
     public function index()
     {
-        return Reservation::All();
+        return Reservation::with('user')->get();
     }
 }
