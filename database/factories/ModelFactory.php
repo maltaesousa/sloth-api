@@ -31,6 +31,7 @@ $factory->define(App\Reservation::class, function (Faker\Generator $faker) {
     $begin = $faker->dateTimeBetween($startDate = '-3 days', $endDate = '+30 days', $timezone = date_default_timezone_get());
 
     return [
+        'name' => $faker->sentence($maxNbWords = 8, $variableNbWords = true),
         'begin' => $begin,
         'end' => $faker->dateTimeAD($min = 58781813, $timezone = date_default_timezone_get())
     ];
