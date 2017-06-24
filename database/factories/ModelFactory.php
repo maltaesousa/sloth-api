@@ -27,11 +27,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Reservation::class, function (Faker\Generator $faker) {
-    static $end;
-    $end = $faker->dateTimeAD($max = 'now', $timezone = date_default_timezone_get());
+    static $begin;
+    $begin = $faker->dateTimeBetween($startDate = '-3 days', $endDate = '+30 days', $timezone = date_default_timezone_get());
 
     return [
-        'begin' => $faker->dateTimeAD($max = $end, $timezone = date_default_timezone_get()),
-        'end' => $end
+        'begin' => $begin,
+        'end' => $faker->dateTimeAD($min = 58781813, $timezone = date_default_timezone_get())
     ];
 });
