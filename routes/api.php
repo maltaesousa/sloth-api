@@ -17,12 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
      return $request->user();
 });
 */
-/*
-Route::post('login', 'LoginController@login');
-Route::post('login', 'LoginController@refresh');
-
-Route::post('logout', 'LoginController@logout');
-*/
 
 Route::group(['namespace' => 'Api'], function () {
     Route::post('/login', 'UserController@login');
