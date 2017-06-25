@@ -10,23 +10,24 @@ use Response;
 
 class UserController extends Controller
     {
-         public function __construct(){
-         $this->content = array();
-     }
-     public function login(Request $request)
-    {   
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password]))
-        {
-            $user = Auth::user();
-            $this->content['token'] =  $user->createToken('Sloth')->accessToken;
-            $status = 200;
+        public function __construct(){
+            $this->content = array();
         }
-        else
+
+        public function login(Request $request)
         {
-         $this->content['error'] = "Unauthorised";
-         $status = 401;
-        }
-    return response()->json($this->content, $status);    
+            if(Auth::attempt(['email' => $request->email, 'password' => $request->password]))
+            {
+                $user = Auth::user();
+                $this->content['token'] = $user->createToken('Sloth')->accessToken;
+                $status = 200;
+            }
+            else
+            {
+                $this->content['error'] = "Unauthorised";
+                $status = 401;
+            }
+        return response()->json($this->content, $status);    
     }
 
     public function details(){
