@@ -32,11 +32,19 @@ $factory->define(App\Reservation::class, function (Faker\Generator $faker) {
     static $timezone;
     static $begin;
     $timezone = date_default_timezone_get();
-    $begin = $faker->dateTimeBetween($startDate = '-3 days', $endDate = '+30 days', $timezone);
+    $begin = $faker->dateTimeBetween(
+        $startDate = '-3 days',
+        $endDate = '+30 days',
+        $timezone);
 
     return [
-        'name' => $faker->sentence($maxNbWords = 5, $variableNbWords = true),
+        'name' => $faker->sentence(
+            $maxNbWords = 5,
+            $variableNbWords = true),
         'begin' => $begin,
-        'end' => $faker->dateTimeBetween($startDate = $begin, $endDate = '+60 days', $timezone)
+        'end' => $faker->dateTimeBetween(
+            $startDate = $begin,
+            $endDate = '+60 days',
+            $timezone)
     ];
 });
