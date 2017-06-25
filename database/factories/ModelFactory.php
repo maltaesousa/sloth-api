@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -27,12 +29,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Reservation::class, function (Faker\Generator $faker) {
+    static $timezone;
     static $begin;
-    $begin = $faker->dateTimeBetween($startDate = '-3 days', $endDate = '+30 days', $timezone = date_default_timezone_get());
+    $timezone = date_default_timezone_get();
+    $begin = $faker->dateTimeBetween($startDate = '-3 days', $endDate = '+30 days', $timezone);
 
     return [
-        'name' => $faker->sentence($maxNbWords = 8, $variableNbWords = true),
+        'name' => $faker->sentence($maxNbWords = 5, $variableNbWords = true),
         'begin' => $begin,
-        'end' => $faker->dateTimeAD($min = 58781813, $timezone = date_default_timezone_get())
+        'end' => $faker->dateTimeBetween($startDate = $begin, $endDate = '+60 days', $timezone)
     ];
 });
