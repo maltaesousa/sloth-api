@@ -15,7 +15,7 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        return Reservation::with('user', 'resource')->get();
+        return Reservation::with('user', 'resource')->orderBy('begin')->get();
     }
 
     /**
