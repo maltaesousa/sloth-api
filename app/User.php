@@ -17,7 +17,7 @@ class User extends Authenticatable
 
     public function locations()
     {
-      return $this->belongsToMany('App\Location');
+      return $this->morphMany('App\Location', 'locatable');
     }
     /**
      * The attributes that are mass assignable.

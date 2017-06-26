@@ -17,6 +17,7 @@ class CreateReservationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('user_id');
+            $table->integer('resource_id');
             $table->dateTimeTz('begin');
             $table->dateTimeTz('end');
             $table->timestamps();

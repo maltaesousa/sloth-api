@@ -6,13 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model
 {
-    public function resources()
+    public function locatable()
     {
-      return $this->hasMany('App\Resource');
-    }
-
-    public function users()
-    {
-      return $this->belongsToMany('App\User');
+      return $this->morphTo();
     }
 }

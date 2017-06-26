@@ -34,9 +34,6 @@ class DatabaseSeeder extends Seeder
 
         // Rest of users
 
-        factory(App\User::class, 50)->create()->each(function ($u) {
-            $u->reservations()->save(factory(App\Reservation::class)->make());
-        });
 
         // Locations
 
@@ -86,5 +83,12 @@ class DatabaseSeeder extends Seeder
                 'location_id' => $location->id
             ]);
         }
+
+        factory(App\Reservation::class, 50)->make()->each(function ($r) {
+            $resId = rand(1, App\Resource::All()->count());
+            $r->resource()->associate(App\Resource::find($resId));
+            $r->user()->associate(factory(App\User::class)->create());
+            $r->save();
+        });
     }
 }
