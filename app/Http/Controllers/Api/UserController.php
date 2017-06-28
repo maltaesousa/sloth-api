@@ -9,10 +9,11 @@ use App\User;
 use Response;
 
 class UserController extends Controller
+{
+    public function __construct()
     {
-        public function __construct(){
-            $this->content = array();
-        }
+        $this->content = array();
+    }
 
         public function login(Request $request)
         {
@@ -28,7 +29,7 @@ class UserController extends Controller
                 $status = 401;
             }
         return response()->json($this->content, $status);    
-    }
+        }
 
     public function details(){
         return response()->json(['user' => Auth::user()]);
