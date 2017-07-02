@@ -65,10 +65,10 @@ class ReservationController extends Controller
      * @param  \App\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reservation $reservation)
+    /*public function edit(Reservation $reservation)
     {
         //
-    }
+    }*/
 
     /**
      * Update the specified resource in storage.
@@ -79,7 +79,7 @@ class ReservationController extends Controller
      */
     public function update(Request $request, Reservation $reservation)
     {
-        //
+        $reservation->update(request()->all());
     }
 
     /**
@@ -90,6 +90,6 @@ class ReservationController extends Controller
      */
     public function destroy(Reservation $reservation)
     {
-        //
+        $reservation->delete();
     }
 }
