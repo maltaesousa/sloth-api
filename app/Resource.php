@@ -11,6 +11,6 @@ class Resource extends Model
 
     public function location()
     {
-     return $this->morphOne('App\Location', 'locatable');
+     return $this->belongsTo('App\Location');
     }
 }

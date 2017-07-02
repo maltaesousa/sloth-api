@@ -4,8 +4,13 @@ namespace App;
 
 class Location extends Model
 {
-    public function locatable()
+    public function resources()
     {
-      return $this->morphTo();
+        return $this->hasMany('App\Resource');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
     }
 }

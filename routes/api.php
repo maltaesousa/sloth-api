@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | API Routes
+|
+| En travail, nettoyer les routes une fois l'authentification en place
 |--------------------------------------------------------------------------|
 */
 
