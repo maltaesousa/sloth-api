@@ -38,6 +38,7 @@
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
             "php artisan optimize",
+            "composer update",
             "php artisan migrate --force --seed",
             "php artisan passport:client --personal --name Sloth"
         ],
