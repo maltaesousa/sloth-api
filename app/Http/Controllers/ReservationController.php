@@ -25,10 +25,10 @@ class ReservationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    /*public function create()
     {
         //
-    }
+    }*/
 
     /**
      * Store a newly created reservation in storage.
@@ -37,8 +37,15 @@ class ReservationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+    //TODO: Get user_id out of here when Auth is working
     {
-        Reservation::create(compact('name'));
+        Reservation::create(request([
+            'name',
+            'user_id',
+            'resource_id',
+            'begin',
+            'end'
+        ]));
     }
 
     /**
@@ -49,7 +56,7 @@ class ReservationController extends Controller
      */
     public function show(Reservation $reservation)
     {
-        //
+        return $reservation;
     }
 
     /**
