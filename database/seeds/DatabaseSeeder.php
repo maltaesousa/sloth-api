@@ -84,7 +84,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        factory(App\Reservation::class, 50)->make()->each(function ($r) {
+        factory(App\Reservation::class, 10)->make()->each(function ($r) {
             $resId = rand(1, App\Resource::All()->count());
             $r->resource()->associate(App\Resource::find($resId));
             $r->user()->associate(factory(App\User::class)->create());
