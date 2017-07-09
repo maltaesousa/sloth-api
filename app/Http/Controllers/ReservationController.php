@@ -39,13 +39,14 @@ class ReservationController extends Controller
     public function store(Request $request)
     //TODO: Get user_id out of here when Auth is working
     {
-        return Reservation::create(request([
+        $reservation = Reservation::create(request([
             'name',
             'user_id',
             'resource_id',
             'begin',
             'end'
         ]));
+        return $reservation->load('user', 'resource');
     }
 
     /**
