@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        // Two users
+        // Two known users
 
         DB::table('users')->insert([
             'login' => 'jdoe',
@@ -32,9 +32,6 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('secret'),
         ]);
 
-        // Rest of users
-
-
         // Locations
 
         $locations = array(
@@ -43,6 +40,7 @@ class DatabaseSeeder extends Seeder
             'Grandson',
             'Concise'
         );
+
         foreach ($locations as $l) {
             DB::table('locations')->insert([
                 'name' => $l
