@@ -9,12 +9,14 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ExampleTest extends TestCase
 {
-    use DatabaseTransactions;
     /**
      * A basic test example.
      *
      * @return void
      */
+    // Runs the test in a transaction so nothing is saved in DB
+    use DatabaseTransactions;
+
     public function testBasicTest()
     {
         $response = $this->get('/');
