@@ -14,7 +14,10 @@ class UserController extends Controller
     }
 
     /**
-     * Handles the login
+     * Handles the login and returns a token when login is successfull.
+     * This will not work if 'Sloth' app is not previously authorized
+     * Please authorize it with php artisan passport:client --personal
+     * if you're running it on your machine for the fist time.
      */
     public function login(Request $request)
     {

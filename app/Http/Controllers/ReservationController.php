@@ -9,7 +9,7 @@ class ReservationController extends Controller
 {
     /**
      * Display a listing of reservations with linked users
-     * and resources.
+     * and resources. Ordered by the begining
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,16 +19,6 @@ class ReservationController extends Controller
             ->orderBy('begin')
             ->get();
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    /*public function create()
-    {
-        //
-    }*/
 
     /**
      * Store a newly created reservation in storage.
@@ -59,17 +49,6 @@ class ReservationController extends Controller
     {
         return $reservation->load('user', 'resource');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    /*public function edit(Reservation $reservation)
-    {
-        //
-    }*/
 
     /**
      * Update the specified resource in storage.
